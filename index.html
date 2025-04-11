@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire d'inscription</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f3e5f5; padding: 40px;">
+
+  <form action="https://formspree.io/f/mqapwrvq" method="POST" style="background-color: white; padding: 30px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="text-align: center; color: #6a1b9a;">Formulaire d'inscription</h2>
+
+    <label for="nom" style="display: block; font-weight: bold; margin-top: 20px;">Nom :</label>
+    <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+
+    <label for="prenom" style="display: block; font-weight: bold; margin-top: 20px;">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required placeholder="Entrez votre prénom" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+
+    <label for="apogee" style="display: block; font-weight: bold; margin-top: 20px;">Code Apogée :</label>
+    <input type="text" id="apogee" name="apogee" required placeholder="Ex : 20231234" pattern="\d{8}" title="Le code Apogée doit contenir exactement 8 chiffres." style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+
+    <label for="email" style="display: block; font-weight: bold; margin-top: 20px;">Adresse email :</label>
+    <input type="email" id="email" name="email" required placeholder="exemple@domaine.com" style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+
+    <label for="filiere" style="display: block; font-weight: bold; margin-top: 20px;">Filière :</label>
+    <select id="filiere" name="filiere" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+      <option value="" disabled selected hidden> Choisissez une filière </option>
+      <option value="gi">Génie informatique</option>
+      <option value="msd">Mathématiques et sciences des données</option>
+      <option value="gc">Génie chimique</option>
+      <option value="gm">Génie mécanique</option>
+      <option value="gp">Génie physique</option>
+    </select>
+
+    <label style="display: block; font-weight: bold; margin-top: 20px;">Année :</label>
+    <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-left: 10px;">
+      <label style="font-weight: normal;"><input type="radio" name="annee" value="1" required> 1ère année universitaire</label>
+      <label style="font-weight: normal;"><input type="radio" name="annee" value="2"> 2ème année universitaire</label>
+    </div>
+
+    <label for="naissance" style="display: block; font-weight: bold; margin-top: 20px;">Date de naissance :</label>
+    <input type="date" id="naissance" name="naissance" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+
+    <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+      <button type="reset" style="padding: 14px 32px; border: none; border-radius: 4px; font-weight: bold; font-size: 16px; cursor: pointer; background-color: #e0e0e0;">Annuler</button>
+      <button type="submit" style="padding: 14px 32px; border: none; border-radius: 4px; font-weight: bold; font-size: 16px; cursor: pointer; background-color: #6a1b9a; color: white;">Envoyer</button>
+    </div>
+
+    <!-- Hidden success message that will be shown after submission -->
+    <div id="confirmationMessage" style="display: none; background-color: #dcedc8; padding: 15px; margin-top: 20px; text-align: center; border-radius: 4px; color: #388e3c; font-weight: bold;">
+      Votre inscription a été soumise avec succès !
+    </div>
+  </form>
+
+  <script>
+    
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      document.getElementById("confirmationMessage").style.display = "block";
+      this.reset();  
+    });
+  </script>
+
+</body>
+</html>
