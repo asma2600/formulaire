@@ -46,7 +46,7 @@
     </div>
 
     <!-- Message de confirmation -->
-    <div id="message-confirmation" style="margin-top: 20px; text-align: center; font-weight: bold;"></div>
+    <div id="message-confirmation" style="margin-top: 20px; text-align: center; font-weight: bold; display: none;"></div>
   </form>
 
   <!-- Script pour gérer l'envoi et afficher le message -->
@@ -67,15 +67,27 @@
       }).then(response => {
         if (response.ok) {
           messageDiv.textContent = "Votre formulaire a été bien envoyé";
-          messageDiv.style.color = "#4CAF50"; // Vert doux
+          messageDiv.style.color = "#4CAF50"; // Vert clair
+          messageDiv.style.backgroundColor = "#dcedc8"; // Fond vert clair similaire au bouton
+          messageDiv.style.padding = "14px 32px"; // Même padding que le bouton
+          messageDiv.style.borderRadius = "4px"; // Bordure arrondie
           form.reset();
+          messageDiv.style.display = "block"; // Affiche le message
         } else {
           messageDiv.textContent = "Une erreur est survenue lors de l'envoi.";
           messageDiv.style.color = "red";
+          messageDiv.style.backgroundColor = "#ffebee"; // Fond rouge clair
+          messageDiv.style.padding = "14px 32px";
+          messageDiv.style.borderRadius = "4px";
+          messageDiv.style.display = "block";
         }
       }).catch(error => {
         messageDiv.textContent = "Erreur réseau : " + error.message;
         messageDiv.style.color = "red";
+        messageDiv.style.backgroundColor = "#ffebee";
+        messageDiv.style.padding = "14px 32px";
+        messageDiv.style.borderRadius = "4px";
+        messageDiv.style.display = "block";
       });
     });
   </script>
