@@ -46,7 +46,7 @@
     </div>
 
     <!-- Message de confirmation -->
-    <div id="message-confirmation" style="margin-top: 20px; text-align: center; font-weight: bold; display: none;"></div>
+    <div id="message-confirmation" style="margin-top: 20px; text-align: center; font-weight: bold; display: none; padding: 14px 32px; border-radius: 4px; background-color: #dcedc8; color: white; font-size: 16px;"></div>
   </form>
 
   <!-- Script pour gérer l'envoi et afficher le message -->
@@ -67,27 +67,18 @@
       }).then(response => {
         if (response.ok) {
           messageDiv.textContent = "Votre formulaire a été bien envoyé";
-          messageDiv.style.color = "#4CAF50"; // Vert clair
-          messageDiv.style.backgroundColor = "#dcedc8"; // Fond vert clair similaire au bouton
-          messageDiv.style.padding = "14px 32px"; // Même padding que le bouton
-          messageDiv.style.borderRadius = "4px"; // Bordure arrondie
-          form.reset();
+          messageDiv.style.backgroundColor = "#4CAF50"; // Fond vert clair
           messageDiv.style.display = "block"; // Affiche le message
+          form.reset();
         } else {
           messageDiv.textContent = "Une erreur est survenue lors de l'envoi.";
-          messageDiv.style.color = "red";
-          messageDiv.style.backgroundColor = "#ffebee"; // Fond rouge clair
-          messageDiv.style.padding = "14px 32px";
-          messageDiv.style.borderRadius = "4px";
-          messageDiv.style.display = "block";
+          messageDiv.style.backgroundColor = "#ff4d4d"; // Fond rouge clair en cas d'erreur
+          messageDiv.style.display = "block"; // Affiche le message
         }
       }).catch(error => {
         messageDiv.textContent = "Erreur réseau : " + error.message;
-        messageDiv.style.color = "red";
-        messageDiv.style.backgroundColor = "#ffebee";
-        messageDiv.style.padding = "14px 32px";
-        messageDiv.style.borderRadius = "4px";
-        messageDiv.style.display = "block";
+        messageDiv.style.backgroundColor = "#ff4d4d"; // Fond rouge clair en cas d'erreur réseau
+        messageDiv.style.display = "block"; // Affiche le message
       });
     });
   </script>
